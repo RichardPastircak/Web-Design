@@ -1,4 +1,4 @@
-# Projekt 1 z webových Technológií / Web Technologies Project 1 
+# Projekt 1 z webových technológií / Web Technologies Project 1 
 
 Web stránky statického blogu na vami vybranú tému.
 
