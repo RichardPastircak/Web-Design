@@ -11,7 +11,7 @@ Toto je štartovacia podoba  prvého z dvoch  projektov z Webových technológi�
 
 - Všetky súbory webových stránok sú v adresári `public`.
 - Podadresáre `css`, `fig` a `js` využite na ukladanie CSS štýlov, obrázkov a skriptov. 
-- GitLab umožňuje vašu stránku aj priamo zobraziť.  Jej adresu nájdete v *Settings* v časti *Pages* pod textom "Your pages are served under:".
+- GitLab umožňuje vašu stránku aj priamo zobraziť.  Jej adresu nájdete v *Settings* v časti *Pages* pod textom "**Your pages are served under:**".
 
 
 ---
