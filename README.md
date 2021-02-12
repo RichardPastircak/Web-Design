@@ -17,3 +17,9 @@ Toto je štartovacia podoba  prvého z dvoch  projektov z Webových technológi�
 ---
 
 ## Description in English
+
+This is the initial form of the first Web Technologies project (out of two). Using HTML and CSS, you will develop it to a static blog with a main page, containing a list of articles, and other pages with individual articles (project phases 1/1 and 1/2). Then you add a form to the main page. The form will be used to enter opinions about your blog. The opinions will be saved to localStorage and displayed on the main page (project phases 1/3 and 1/4).
+
+- All website files are in the `public` directory. 
+- Use the `css`,` fig` and `js` subdirectories to store CSS styles, images and scripts. 
+- GitLab allows you to view your page. You can find its address in *Settings*, in the * Pages * section under the text "** Your pages are served under: **".
