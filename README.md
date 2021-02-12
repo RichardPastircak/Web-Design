@@ -22,4 +22,4 @@ This is the initial form of the first Web Technologies project (out of two). Usi
 
 - All website files are in the `public` directory. 
 - Use the `css`,` fig` and `js` subdirectories to store CSS styles, images and scripts. 
-- GitLab allows you to view your page. You can find its address in *Settings*, in the * Pages * section under the text "** Your pages are served under: **".
+- GitLab allows you to view your page. You can find its address in *Settings*, in the *Pages* section under the text "**Your pages are served under:**".
