@@ -1,7 +1,7 @@
 # Projekt 1 z webových technológií / Web Technologies Project 1 
 
 Web stránky statického blogu na vami vybranú tému.
-    Doskové hry
+    Obľúbené doskové hry
     
 Web pages of a static blog about your own topic. 
 
