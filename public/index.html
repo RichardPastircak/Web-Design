@@ -1,16 +1,65 @@
 <!DOCTYPE HTML>
-<html lang="sk">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Môj blog / My Blog</title>
+    <title>Static blog</title>
+    <link href="./css/index.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-  <h1>Doskové hry</h1>
-  <p>
-    Toto bude hlavná stránka prvej časti vášho zadania z Webových technológií - statického blogu
-  </p>
-  <p>
-    This will be the main page of the first part of your  Web Technologies project ( a static blog).
-  </p>
-  </body>
+    <canvas id="smajlikPlatno" width="120" height="120">
+    </canvas>
+    <script>
+      var platno = document.getElementById('smajlikPlatno');
+      var context = platno.getContext('2d');
+      context.strokeStyle = "#000000";
+      context.fillStyle = "#FFDD00";
+      context.beginPath();
+      context.moveTo(10,110);
+      context.lineTo(110,110);
+      context.lineTo(60,30);
+      context.stroke();
+      context.fill();
+ 
+      context.moveTo(85,30);
+      context.arc(60,30,25,0,Math.PI*2,true);
+      context.closePath();
+
+      context.stroke();
+      context.fill();
+    </script>
+
+    
+      <h1>My Board Games</h1>
+      <p>
+        Welcome to my Blog. Let me introduce briefly. My name is Richard Pastirčák, I am big fan (you could probably say that I am bit addicted) of board games.
+        Unfortunatelly I don't own many, however I played quite a lot of them at Tabletop Simulator. I would like to talk about my favourites board games and 
+        also give you a bit of recension on them. Hope you will find them as interesting as I did :)
+      </p>
+
+      <h2>My favourite board games</h2>
+
+      <div class="favourite_games"> 
+        <p><a href="./article1.html"><h3>Root</h3></a></p>
+        <a href="https://www.boardgamequest.com/wp-content/uploads/2018/09/Root-300x234.jpg" target="_blank"><img src="./fig/root_table.jpg" alt="Root cover" ></a>
+      </div>
+      <div class="favourite_games">
+        <p><a href="./article2.html"><h3>Nemesis</h3></a></p>
+        <a href="https://cf.geekdo-images.com/tAqLpWxQ0Oo3GaPP3MER1g__itemrep/img/GcRdGHHeKlE4W4TLwcvW3tloDT0=/fit-in/246x300/filters:strip_icc()/pic5073276.jpg" target="_blank"><img src="./fig/nemesis_table.jpg" alt="Nemesis cover"></a>
+      </div>
+      <div class="favourite_games">
+        <p><a href="./article3.html"><h3>Archipelago</h3></a></p>
+        <a href="https://cf.geekdo-images.com/6kwNH1BGcKpwO6CpV3qRTQ__itemrep/img/TYSYCuUeJluN49kUW_dx0QAKuPY=/fit-in/246x300/filters:strip_icc()/pic1640388.jpg" target="_blank"><img src="./fig/archipelago_table.jpg" alt="Archipelago cover"></a>
+      </div>
+
+      
+    <p id="bottom_p">Those are the best of the best (at least from those that I played). In future I will add more, so if you are interested about 
+        some specific game let ma know: <a href="mailto:richard.pastircak@student.tuke.sk">Richard Pastirčák</a>.</p>
+    
+    <p id="footer">
+        Notice: This web is only for educational purposes and will be deleted later, however
+      if you are autor of any of those pictures and you don't like that I used them, please contact me at email: <a id="mail" href="mailto:richard.pastircak@student.tuke.sk">richard.pastircak@student.tuke.sk</a> and I will imidiately delete them.
+    </p>
+
+    </body>
 </html>

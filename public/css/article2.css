@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(34, 73, 40);
+    /*border: solid;*/
+}
+
+body{
+    background-color: rgb(203, 247, 147);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.0 em;
+    font-weight: bold;
+}
+
+
+p{
+    text-align: center;
+    font-size: 1.25em;
+    width: 80%;
+    margin: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#Back{
+    margin-left: 0.25%;
+    text-decoration: none;
+}
+
+img{
+    float: left;
+    border: solid 2px rgb(34, 73, 40);
+    margin: 1%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 10%;
+    float: left;
+}
+
+#footer{
+    background-color: rgba(48, 46, 46, 0.555);
+    background-size: cover;
+
+    margin: 0;
+    padding: 2%;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    float: left;
+    
+    text-align: left;
+    font-size: 0,25 em;
+    color: rgba(255, 255, 255, 0.616);
+
+}
+
+#mail{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.616);
+}
+
+@media only screen and (max-width: 1500px){
+    img{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media only screen and (max-width: 1150px){
+    img{
+       margin-bottom: 15%;
+    };
+}
+
+
+@media only screen and (max-width: 750px){
+    img{
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-bottom: 20%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    img{
+        margin-bottom: 30%;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    img{
+        margin-bottom: 35%;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    img{
+        margin-bottom: 40%;
+    }
+}
+

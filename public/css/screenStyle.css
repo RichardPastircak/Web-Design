@@ -1,2 +1,210 @@
 /*V tomto súbore definujte vlastnosti štýlov pre všetky stránky vášho statického blogu pre zobrazenie na obrazovke.*/
 /*Please, define here the style for all the pages of your static blog for displaying on screen.*/
+
+
+*{
+    margin: 0;
+    border-spacing: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(34, 73, 40);
+    /*border: solid;*/
+}
+
+body{
+    background-color: rgb(203, 247, 147);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.95;
+}
+
+h1, h2{
+    text-align: center;
+    font-size: 2.0 em;
+    font-weight: bold;
+}
+
+
+p{
+    text-align: center;
+    font-size: 1.25em;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    clear: left;
+}
+
+
+
+img{
+    border: solid 2px rgb(34, 73, 40);
+    margin: 2%;
+    margin-left: 25%;
+    margin-right: 25%;
+    float: left;
+}
+
+
+table{
+    width: 20%;
+    float: left;
+    margin-top: 5%;
+    margin-left: 20%;
+    border: solid 4px rgb(34, 73, 40);
+    border-collapse: collapse;
+}
+
+tr, th, td{
+    border: solid 4px rgb(34, 73, 40);
+    padding-left: 1%;
+}
+
+caption {
+    font-size: 1.5em;
+}
+
+tfoot{
+    text-align: center;
+}
+
+#Back{
+    margin-left: 0.25%;
+    text-decoration: none;
+}
+
+
+
+
+.dlcs{
+    float: left;
+    text-align: left;
+    margin-left: 20%;
+}
+
+h2{
+    text-align: left;
+    padding-left: 10%;
+}
+
+.saveme{
+    width: 100%;
+    float: left;
+}
+
+ul{
+    padding-left: 3%;
+    list-style-type: disc;
+}
+
+#last{
+    float: left;
+    margin-left: 0;
+    padding-top: 1%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+
+#footer{
+    background-color: rgba(48, 46, 46, 0.555);
+    background-size: cover;
+
+    margin: 0;
+    padding: 2%;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    float: left;
+    
+    text-align: left;
+    font-size: 0,25 em;
+    color: rgba(255, 255, 255, 0.616);
+
+}
+
+#mail{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.616);
+}
+
+@media only screen and (max-width: 1440px){
+    .dlcs{
+        margin-left: 10%;
+    }
+    table{
+        margin-left: 25%;
+    }
+    h2{
+        padding-left: 20%;
+    }
+
+}
+
+@media only screen and (max-width: 1250px){
+    .dlcs{
+        margin-left: 10%;
+    }
+    table{
+        margin-left: 20%;
+    }
+
+}
+
+@media only screen and (max-width: 1100px){
+    .dlcs{
+        margin-left: 40%;
+        margin-right: 20%;
+        margin-top: 5%;
+    }
+    table{
+        margin-top: 5%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+    h2{
+        padding-left: 10%;
+    }
+
+    #last{
+        margin-bottom: 15%;
+      }
+}
+
+
+@media only screen and (max-width: 850px){
+    #last{
+      margin-bottom: 17%;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    img{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    
+    #last{
+        margin-bottom: 20%;
+      }
+}
+
+
+@media only screen and (max-width: 590px){
+    #last{
+      margin-bottom: 35%;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    #last{
+      margin-bottom: 40%;
+    }
+}
+@media only screen and (max-width: 390px){
+    #last{
+      margin-bottom: 45%;
+    }
+}
