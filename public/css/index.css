@@ -16,12 +16,17 @@ body{
 
 canvas{
     float: left;
+    margin-left: 1%;
 }
 
 h1, h2, h3{
     text-align: center;
     font-weight: bold;
     margin-top: 2%;
+}
+
+h1{
+    width: 93%;
 }
 
 p{
@@ -80,7 +85,7 @@ img{
     text-align: center;
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1050px){
     #bottom_p{
         margin-bottom: 15%;
     }
@@ -92,9 +97,30 @@ img{
     }
 }
 
+@media only screen and (max-width: 768px){
+    #main_p{
+        margin-top: 7%;
+    }
+    h1{
+        padding-top: 10%;
+        width: 85%;
+    }
+}
+
+
 @media only screen and (max-width: 590px){
     #bottom_p{
         margin-bottom: 27%;
+    }
+}
+
+@media only screen and (max-width: 520px){
+    #main_p{
+        margin-top: 10%;
+    }
+    h1{
+        padding-top: 10%;
+        width: 90%;
     }
 }
 
@@ -102,5 +128,15 @@ img{
     #bottom_p{
         margin-bottom: 35%;
     }
+    
 }
+
+@media only screen and (max-width: 420px){
+    #main_p{
+        margin-top: 11%;
+    }
+
+}
+
+
 

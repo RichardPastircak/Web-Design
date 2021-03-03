@@ -18,10 +18,11 @@
       context.moveTo(10,110);
       context.lineTo(110,110);
       context.lineTo(60,30);
+      context.closePath();
       context.stroke();
       context.fill();
  
-      context.moveTo(85,30);
+      context.beginPath();
       context.arc(60,30,25,0,Math.PI*2,true);
       context.closePath();
 
@@ -31,7 +32,7 @@
 
     
       <h1>My Board Games</h1>
-      <p>
+      <p id="main_p">
         Welcome to my Blog. Let me introduce briefly. My name is Richard Pastirčák, I am big fan (you could probably say that I am bit addicted) of board games.
         Unfortunatelly I don't own many, however I played quite a lot of them at Tabletop Simulator. I would like to talk about my favourites board games and 
         also give you a bit of recension on them. Hope you will find them as interesting as I did :)

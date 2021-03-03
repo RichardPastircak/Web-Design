@@ -165,7 +165,7 @@ ul{
         margin-right: 40%;
     }
     h2{
-        padding-left: 10%;
+        padding-left: 15.5%;
     }
 
     #last{
@@ -178,6 +178,7 @@ ul{
     #last{
       margin-bottom: 17%;
     }
+    
 }
 
 @media only screen and (max-width: 700px){
@@ -189,6 +190,15 @@ ul{
     #last{
         margin-bottom: 20%;
       }
+    .dlcs{
+        margin-left: 35%;
+    }
+    table{
+        margin-left: 39%;
+    }
+    h2{
+        padding-left: 30%;
+    }
 }
 
 
