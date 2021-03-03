@@ -22,7 +22,6 @@ body{
 
 h1, h2{
     text-align: center;
-    font-size: 2.0 em;
     font-weight: bold;
 }
 
@@ -120,7 +119,6 @@ ul{
     float: left;
     
     text-align: left;
-    font-size: 0,25 em;
     color: rgba(255, 255, 255, 0.616);
 
 }
