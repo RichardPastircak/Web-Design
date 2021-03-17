@@ -1,15 +1,16 @@
 /*V tomto súbore definujte vlastnosti štýlov pre všetky stránky vášho statického blogu pre zobrazenie na obrazovke.*/
 /*Please, define here the style for all the pages of your static blog for displaying on screen.*/
 
-
+        /*seetign up general seetings*/
 *{
     margin: 0;
-    border-spacing: 0px;
-    padding: 0px;
+    border-spacing: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(34, 73, 40);
-    /*border: solid;*/
+
+   /*border: solid black;*/
 }
 
 body{
@@ -20,39 +21,117 @@ body{
     opacity: 0.95;
 }
 
-h1, h2{
+#indexbody{
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+}
+
+#article-body{
+    display: grid;
+    grid-template-columns: 15% 35% 35% 15%;
+}
+
+.grid-index{
+    grid-column-start: 2;
+}
+
+
+h1, h2, h3{
     text-align: center;
     font-weight: bold;
 }
 
+h2{
+    margin-top: 1%;
+}
 
 p{
     text-align: center;
-    font-size: 1.25em;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    clear: left;
+    font-size: 1.5em;
 }
 
+a{
+    text-decoration: none;
+}
 
-
-img{
+img {
     border: solid 2px rgb(34, 73, 40);
-    margin: 2%;
-    margin-left: 25%;
-    margin-right: 25%;
-    float: left;
+    margin-top: 1%;
+}
+                /*index.css*/
+
+#indexcanvas {
+    grid-column: 1 / 2;
+    margin-top: 0;
 }
 
+#grid-index-h1{
+    align-self: center;
+
+}
+
+.marginindex{
+    margin-top: 1%;
+}
+
+#indexh2{
+    margin-top: 1%;
+}
+
+.index1img{
+    margin-top: 1%;
+}
+
+.smallpicture{
+    width: 100%;
+}
+
+figure img {
+    width: 100%;
+}
+
+#flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+            /* arcticle1.css*/
+
+#article-h1{
+    grid-column: 2/4;
+}
+
+#article-main{
+    grid-column: 2/4;
+}
+
+#article1-img{
+    width: 60%;
+    margin-left: 20%;
+}
+
+#article1-flex{
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 1.10em;
+}
+
+.article1-h2{
+    font-size: 1.65em;
+}
+
+h3{
+    text-align: left;
+    margin-left: 15%;
+}
 
 table{
-    width: 20%;
-    float: left;
-    margin-top: 5%;
-    margin-left: 20%;
     border: solid 4px rgb(34, 73, 40);
     border-collapse: collapse;
+    width: 20%;
 }
 
 tr, th, td{
@@ -61,158 +140,139 @@ tr, th, td{
 }
 
 caption {
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 tfoot{
     text-align: center;
 }
 
-#Back{
-    margin-left: 0.25%;
-    text-decoration: none;
-}
-
-
-
-
-.dlcs{
-    float: left;
-    text-align: left;
-    margin-left: 20%;
-}
-
-h2{
-    text-align: left;
-    padding-left: 10%;
-}
-
-.saveme{
-    width: 100%;
-    float: left;
-}
-
 ul{
     padding-left: 3%;
+    padding-right: 10%;
     list-style-type: disc;
 }
+                        /*article1-3*/
 
-#last{
-    float: left;
-    margin-left: 0;
-    padding-top: 1%;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10%;
-    margin-top: 5%;
+#Back {
+    grid-column-start: 1;
+    text-decoration: none;
+    font-size: 1.25em;
+
 }
 
+/*animation...*/
+
+.link-transition:hover {
+    background-color: rgb(34, 73, 40);
+    color: white;
+    transition-property: background-color, color;
+    transition-duration: 500ms, 250ms;
+    transition-timing-function: linear;
+}
+
+@keyframes anim {
+    from{
+        color: rgb(203, 247, 147);
+    }
+    to{
+        color: rgb(34, 73, 40);
+    }
+}
+
+h1{
+    animation-name: anim;
+    animation-duration: 3s;
+}
+
+
+                        /*footer part at the bottom of page*/
 #footer{
     background-color: rgba(48, 46, 46, 0.555);
     background-size: cover;
-
-    margin: 0;
-    padding: 2%;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    float: left;
-    
-    text-align: left;
+    text-align: center;
     color: rgba(255, 255, 255, 0.616);
-
+    padding: 2%;
+    margin-top: 1%;
+    grid-column: 1 / -1;
 }
 
 #mail{
-    text-decoration: none;
     color: rgba(255, 255, 255, 0.616);
 }
+@media (max-width: 600px) and (min-resolution: 1.8dppx){
 
-@media only screen and (max-width: 1440px){
-    .dlcs{
-        margin-left: 10%;
+    *{
+        /*border: solid;*/
     }
+
+    #indexbody{
+        grid-template-columns: 3% auto 3%;
+        min-width: 60rem;
+        max-width: 80rem;
+        font-size: 2em;
+    }
+
+    .index1img{
+        width: 100%;
+    }
+
+    #indexcanvas{
+        grid-column-start: 2;
+        justify-self: center;
+
+        /*-ms-transform: rotate(180deg);*/
+        transform: rotate(180deg);
+    }
+
+    #grid-index-h1{
+        grid-row-start: 2;
+    }
+
+    #indexmain{
+        grid-row-start: 3;
+    }
+
+    .index-footer{
+        grid-row-start: 4;
+    }
+
+    /**/
+    #article-body{
+        display: grid;
+        grid-template-columns: 1% auto 1%;
+        min-width: 60rem;
+        max-width: 80rem;
+        font-size: 2em;
+    }
+
+    #article1-flex{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h3{
+        margin-left: 0;
+        text-align: center;
+        font-size: 1.25em;
+    }
+
+    #article1-img{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    ol{
+        width: 50%;
+        margin-left: 30%;
+        margin-bottom: 1%;
+        margin-top: 1%;
+        font-size: 1.25em;
+    }
+
     table{
-        margin-left: 25%;
-    }
-    h2{
-        padding-left: 20%;
-    }
-
-}
-
-@media only screen and (max-width: 1250px){
-    .dlcs{
-        margin-left: 10%;
-    }
-    table{
-        margin-left: 20%;
-    }
-
-}
-
-@media only screen and (max-width: 1100px){
-    .dlcs{
-        margin-left: 40%;
-        margin-right: 20%;
-        margin-top: 5%;
-    }
-    table{
-        margin-top: 5%;
-        margin-left: 40%;
-        margin-right: 40%;
-    }
-    h2{
-        padding-left: 15.5%;
-    }
-
-    #last{
-        margin-bottom: 15%;
-      }
-}
-
-
-@media only screen and (max-width: 850px){
-    #last{
-      margin-bottom: 17%;
-    }
-    
-}
-
-@media only screen and (max-width: 700px){
-    img{
-        margin-left: 2%;
-        margin-right: 2%;
-    }
-    
-    #last{
-        margin-bottom: 20%;
-      }
-    .dlcs{
-        margin-left: 35%;
-    }
-    table{
-        margin-left: 39%;
-    }
-    h2{
-        padding-left: 30%;
+        font-size: 1.25em;
     }
 }
 
 
-@media only screen and (max-width: 590px){
-    #last{
-      margin-bottom: 35%;
-    }
-}
-
-@media only screen and (max-width: 450px){
-    #last{
-      margin-bottom: 40%;
-    }
-}
-@media only screen and (max-width: 390px){
-    #last{
-      margin-bottom: 45%;
-    }
-}

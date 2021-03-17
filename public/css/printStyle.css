@@ -1,2 +1,111 @@
 /*V tomto súbore definujte vlastnosti štýlov pre všetky stránky vášho statického blogu pre tlač.*/
 /*Please, define here the style for all the pages of your static blog for printing.*/
+
+    * {
+        margin: 0;
+        border-spacing: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: left;
+        color: black;
+        /*border: solid;*/
+    }
+
+    html{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+    }
+
+    p{
+        margin-top: 1cm;
+        margin-bottom: 1cm;
+        text-align: left;
+    }
+
+    h1{
+        font-size: 30pt;
+    }
+
+    h2{
+        font-size: 24pt;
+    }
+
+    h3{
+        font-size: 18pt;
+    }
+
+    /*index*/
+    #indexbody {
+        display: inline-block;
+    }
+
+    .smallpicture {
+        width: 100%;
+    }
+
+    #printindex{
+        margin-top: 5.5cm;
+    }
+    /*article1*/
+    #article-body {
+        display: inline-block;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    table, tr, th, td{
+        border: solid black 1mm;
+        font-size: 15pt;
+    }
+
+    caption {
+        text-align: center;
+        margin-bottom: 5mm;
+        margin-top: 2.2cm;
+    }
+
+    #dlcs{
+        font-size: 15pt;
+        margin-left: 10cm;
+        margin-top: 3cm;
+    }
+
+    #article1-flex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #article1-h2{
+        margin-top: 2cm;
+    }
+
+    #article1-img{
+        margin-left: 5%;
+        width: 90%;
+        margin-top: 10cm;
+    }
+
+    /*2-3*/
+    #print-article2-img{
+        margin-top: 7cm;
+    }
+
+    #article3-printimg{
+        margin-top: 8cm;
+    }
+
+    /*all or some*/
+    #footer, canvas, #Back, #citat, .hideatprint {
+        display: none;
+    }
+
+    img{
+        border: none;
+    }
+
+
+
