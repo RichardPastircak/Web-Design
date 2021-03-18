@@ -8,12 +8,24 @@
         box-sizing: border-box;
         text-align: left;
         color: black;
+        background-color: white;
         /*border: solid;*/
     }
 
     html{
         font-family: 'Times New Roman', Times, serif;
         font-size: 12pt;
+        color: black;
+        background-color: white;
+    }
+
+    body, #grid-index-h1 ,header, h1, h2, h3 {
+        color: black;
+        background-color: white;
+    }
+
+    h1{
+        animation: none;
     }
 
     p{
@@ -24,6 +36,7 @@
 
     h1{
         font-size: 30pt;
+        ;
     }
 
     h2{
@@ -64,13 +77,12 @@
     caption {
         text-align: center;
         margin-bottom: 5mm;
-        margin-top: 2.2cm;
+        margin-top: 5cm;
     }
 
     #dlcs{
         font-size: 15pt;
         margin-left: 10cm;
-        margin-top: 3cm;
     }
 
     #article1-flex{
@@ -80,13 +92,14 @@
     }
 
     #article1-h2{
-        margin-top: 2cm;
+        margin-top: 6cm;
     }
 
     #article1-img{
         margin-left: 5%;
         width: 90%;
         margin-top: 10cm;
+        margin-bottom: 2cm;
     }
 
     /*2-3*/
@@ -95,7 +108,7 @@
     }
 
     #article3-printimg{
-        margin-top: 8cm;
+        margin-top: 7cm;
     }
 
     /*all or some*/
@@ -106,6 +119,4 @@
     img{
         border: none;
     }
-
-
 
