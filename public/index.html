@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>My Board Games</title>
-    <link href="./css/screenStyle.css" rel="stylesheet">
+    <link href="./css/screenStyle.css" rel="stylesheet" media="screen">
     <link href="./css/printStyle.css" rel="stylesheet" media="print">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -78,6 +78,61 @@
             <p>Those are the best of the best (at least from those that I played). In future I will add more, so if you are interested about
             some specific game let me know <a class="hideatprint" href="mailto:richard.pastircak@student.tuke.sk">: Richard Pastirčák.</a></p>
           </footer>
+
+          <section>
+              <h2>Rate my site</h2>
+              <form id="form">
+                <div class="form_divs" id="form-upper3">
+                    <div>
+                    <label for="user_name">Your name:</label>
+                    <input id = 'user_name' type = "text" name = "meno" placeholder="Jozko Mrkvicka" required="required" size="15" maxlength="20">
+                    </div>
+                    <div>
+                    <label for="user_email">Your email:</label>
+                    <input id = 'user_email' type = "email" name = "email" placeholder="jozko.mrkvicka@gmail.com" required="required" size="30" maxlength="40">
+                    </div>
+                    <div>
+                    <label for="user_picture">Picture:</label>
+                    <input id = "user_picture" type="url" name="picture" placeholder="Insert url of picture" size="30" pattern="https?://.+">
+                    </div>
+                </div>
+
+                <div class="form_divs">
+                    <label for="radio1">Good</label>
+                    <input id="radio1" type="radio" name="radiobox">
+                    <label for="radio2">Mediocre</label>
+                    <input id="radio2" type="radio" name="radiobox">
+                    <label for="radio3">Bad</label>
+                    <input id="radio3" type="radio" name="radiobox">
+                </div>
+
+               <div class="form_divs">
+                    <label for="check_box_1">I would recommend to my friend</label>
+                    <input id="check_box_1" type="checkbox" name="checkbox" checked>
+               </div>
+
+                <div id="label_textarea" class="form_divs">
+                    <label for="textarea">Insert your comment:</label>
+                    <textarea id="textarea" name="comment" cols="40" rows="3" placeholder="Write your opinion here" required="required"></textarea>
+                </div>
+
+                <div class="form_divs">
+                    <label for="text-datalist">Choose a key word</label>
+                    <input type="text" id="text-datalist" list="datalist" name="datalist" placeholder="Click to choose a keyword">
+                      <datalist id="datalist">
+                        <option value="Boardgames">
+                        <option value="Root">
+                        <option value="Nemesis">
+                        <option value="Archipelago">
+                    </datalist>
+                </div>
+
+                <div class="form_divs">
+                    <button type="submit">SEND</button>
+                    <button type="reset">RESET</button>
+                </div>
+              </form>
+          </section>
         </article>
       </main>
 
@@ -88,5 +143,58 @@
       </p>
     </footer>
 
-    </body>
+    <script>
+        let opinions=[];
+
+        const formular=document.getElementById("form");
+
+        formular.addEventListener
+        ("submit",processOpnFrmData);
+
+        function processOpnFrmData(event){
+            //1.prevent normal event (form sending) processing
+            event.preventDefault();
+
+            //2. Read and adjust data from the form (here we remove white spaces before and after the strings)
+            const userName = document.getElementById("user_name").value.trim();
+            const userEmail = document.getElementById("user_email").value.trim();
+            const userPicture = document.getElementById("user_picture").value;
+            const checkBox = document.getElementById("check_box_1").checked;
+            const userComment = document.getElementById("textarea").value;
+            const userKeyWord = document.getElementById("text-datalist").value;
+
+            //3. Verify the data
+            if(userName=="" || userEmail=="" || userComment == ""){
+                //mistake do sth
+                return;
+            }
+
+            //3. Add the data to the array opinions and local storage
+            const userRating =
+                {
+                    name: userName,
+                    email: userEmail,
+                    picture: userPicture,
+                    wouldRecommend: checkBox,
+                    comment: userComment,
+                    keyWord: userKeyWord,
+                    created: new Date()
+                };
+
+            console.log("New opinion:\n "+JSON.stringify(userRating));
+
+            opinions.push(userRating);
+
+            localStorage.myTreesComments = JSON.stringify(opinions);
+
+
+            //4. Notify the user
+            console.log("New opinion added");
+            console.log(opinions);
+
+            //5. Reset the form
+            formular.reset(); //resets the form
+        }
+    </script>
+  </body>
 </html>
