@@ -153,10 +153,38 @@ button{
     font-weight: bold;
 }
 
-input:invalid{   /*ask question*/
-    border: solid red 2px;
+textarea:invalid, input:invalid{
+    color: red;
 }
 
+    /*******************Mustache*******************/
+#opinions{
+    margin-top: 2%;
+}
+
+#usersComments > section{
+    margin-top: 2%;
+    width: 50%;
+    margin-left: 25%;
+    border:  solid 2px;
+    padding: 1%;
+}
+
+#usersComments > section > *{
+    text-align: left;
+    margin: 0;
+   /* border: solid;*/
+}
+
+#usersComments > section > a > img{
+    width: 25%;
+    float: right;
+}
+
+#mustache_last{
+    font-weight: bold;
+    font-size: 1.10em;
+}
             /********* arcticle1.css************/
 
 #article-h1{
@@ -263,6 +291,7 @@ h1{
 #mail{
     color: rgba(255, 255, 255, 0.616);
 }
+
 @media (max-width: 600px) and (min-resolution: 1.8dppx){
 
     *{
@@ -302,10 +331,21 @@ h1{
 
     #form-upper3{
         flex-direction: column;
+        text-align: left;
     }
 
     #check_box_1, #radio1, #radio2, #radio3 {
         transform: scale(2.0);
+    }
+
+    #usersComments > section{
+        width: 100%;
+        margin: 0;
+        margin-top: 1%;
+    }
+
+    #usersComments > section > img{
+        min-width: 10rem;
     }
 
     /**/
