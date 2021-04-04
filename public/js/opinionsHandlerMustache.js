@@ -29,6 +29,7 @@ export default class OpinionsHandlerMustache{
         }
         this.oldComments.innerHTML = this.opinionArray2html(this.opinions);
         this.form.addEventListener("submit", event => this.processOpnFrmData(event));
+        if (this.opinions.length == 0) document.getElementById("opinions").style.visibility = "hidden";
     }
 
     processOpnFrmData(event){
@@ -44,19 +45,51 @@ export default class OpinionsHandlerMustache{
         const userComment = document.getElementById("textarea").value;
         const userKeyWord = document.getElementById("text-datalist").value;
 
-        //3. Verify the data
-        if (userName == "" || userEmail == "" || userComment.trim() == "") {
-            if(userName == ""){
-                document.getElementById("user_name").style.border = "solid red";
-            }
-            else if(userEmail == ""){
-                document.getElementById("user_email").style.border = "solid red";
-            }
-            //else if
+        //3. Verify the data;
+        let mistakes = 0
+        if(userName == "") {
+            document.getElementById("user_name").style.border = "medium solid red";
+            mistakes++;
+        }
+        else if (document.getElementById("user_name").style.border == "medium solid red"){
+            document.getElementById("user_name").style.border = "solid 4px rgb(34, 73, 40)";
+        }
+
+        if(userEmail == "" || !userEmail.includes("@")) {
+            document.getElementById("user_email").style.border = "medium solid red";
+            mistakes++;
+        }
+        else if (document.getElementById("user_email").style.border == "medium solid red"){
+            document.getElementById("user_email").style.border = "solid 4px rgb(34, 73, 40)"
+        }
+
+        if(userComment.trim() == "") {
+            document.getElementById("textarea").style.border = "medium solid red";
+            mistakes++;
+        }
+        else if (document.getElementById("textarea").style.border == "medium solid red"){
+            document.getElementById("textarea").style.border = "solid 4px rgb(34, 73, 40)";
+        }
+
+        if(userPicture.trim() != "" && !userPicture.includes("https://") && !userPicture.includes("http://")) {
+            document.getElementById("user_picture").style.border = "medium solid red";
+            mistakes++;
+        }
+        else if (document.getElementById("user_picture").style.border == "medium solid red"){
+            document.getElementById("user_picture").style.border = "solid 2px rgb(34, 73, 40)";
+        }
+
+        if (mistakes > 0){
+            document.getElementById("rate_my_site").textContent = ("It seems you filled " + mistakes + " fields wrongly");
+            document.getElementById("rate_my_site").style.color = "red";
             return;
         }
 
         //3. Add the data to the array opinions and local storage
+        if (document.getElementById("opinions").style.visibility == "hidden"){
+            document.getElementById("opinions").style.visibility = "visible";
+        }
+
         const userRating =
             {
                 name: userName,
@@ -80,6 +113,11 @@ export default class OpinionsHandlerMustache{
         //4. Update HTML
         this.oldComments.innerHTML+=this.opinion2html(userRating);
 
+        //Reset correct input back
+        if(document.getElementById("rate_my_site").style.color == "red") {
+            document.getElementById("rate_my_site").style.color = "rgb(34, 73, 40)";
+            document.getElementById("rate_my_site").textContent = "Rate my site";
+        }
 
         //5. Reset the form
         this.form.reset(); //resets the form
@@ -130,6 +168,9 @@ export default class OpinionsHandlerMustache{
 
         localStorage.comments = JSON.stringify(this.opinions);
         this.oldComments.innerHTML = this.opinionArray2html(this.opinions);
+
+        //hide Opinions heading
+        if (this.opinions.length == 0) document.getElementById("opinions").style.visibility = "hidden";
     }
 
 }

@@ -177,7 +177,7 @@ textarea:invalid, input:invalid{
 }
 
 #usersComments > section > a > img{
-    width: 25%;
+    width: 15%;
     float: right;
 }
 
