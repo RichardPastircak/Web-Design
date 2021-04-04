@@ -1,4 +1,3 @@
-import OpinionsHandler from "./opinionsHandler.js";
 import Mustache from "./mustache.js";
 
 /**
@@ -8,7 +7,7 @@ import Mustache from "./mustache.js";
  * @extends OpinionsHandler
  * @author Stefan Korecko (2021)
  */
-export default class OpinionsHandlerMustache extends OpinionsHandler{
+export default class OpinionsHandlerMustache{
 
     /**
      * constructor
@@ -16,13 +15,74 @@ export default class OpinionsHandlerMustache extends OpinionsHandler{
      * @param commentsList - id of a html element to which the list of visitor opinions is rendered
      * @param template - id of a html element with the mustache template
      */
-    constructor(formId, commentsList,template) { //("opnFrm","opinionsContainer","mTmplOneOpinion")
+    constructor(formId, commentsList,template) {
 
-        //call the constructor from the superclass:
-        super(formId, commentsList);
-
-        //get the template:
+        this.opinions = [];
+        this.oldComments = document.getElementById(commentsList);
+        this.form = document.getElementById("form");
         this.mustacheTemplate=document.getElementById(template).innerHTML;
+    }
+
+    init(){
+        if (localStorage.comments) {
+            this.opinions = JSON.parse(localStorage.comments);
+        }
+        this.oldComments.innerHTML = this.opinionArray2html(this.opinions);
+        this.form.addEventListener("submit", event => this.processOpnFrmData(event));
+    }
+
+    processOpnFrmData(event){
+        //1.prevent normal event (form sending) processing
+        event.preventDefault();
+
+        //2. Read and adjust data from the form (here we remove white spaces before and after the strings)
+        const userName = document.getElementById("user_name").value.trim();
+        const userEmail = document.getElementById("user_email").value.trim();
+        const userPicture = document.getElementById("user_picture").value;
+        const userRadioBox = document.getElementById("form").elements["radiobox"].value;
+        const checkBox = document.getElementById("check_box_1").checked;
+        const userComment = document.getElementById("textarea").value;
+        const userKeyWord = document.getElementById("text-datalist").value;
+
+        //3. Verify the data
+        if (userName == "" || userEmail == "" || userComment.trim() == "") {
+            if(userName == ""){
+                document.getElementById("user_name").style.border = "solid red";
+            }
+            else if(userEmail == ""){
+                document.getElementById("user_email").style.border = "solid red";
+            }
+            //else if
+            return;
+        }
+
+        //3. Add the data to the array opinions and local storage
+        const userRating =
+            {
+                name: userName,
+                email: userEmail,
+                picture: userPicture,
+                radioBox: userRadioBox,
+                wouldRecommend: checkBox,
+                comment: userComment,
+                keyWord: userKeyWord,
+                //created: new Date(2021,3,2, 0,0)
+                created: new Date()
+            };
+
+        console.log("New opinion:\n "+JSON.stringify(userRating));
+
+        this.opinions.push(userRating);
+
+        localStorage.comments = JSON.stringify(this.opinions);
+
+
+        //4. Update HTML
+        this.oldComments.innerHTML+=this.opinion2html(userRating);
+
+
+        //5. Reset the form
+        this.form.reset(); //resets the form
     }
 
     /**
@@ -47,6 +107,29 @@ export default class OpinionsHandlerMustache extends OpinionsHandler{
 
         //use the Mustache and return the rendered HTML:
         return Mustache.render(this.mustacheTemplate,opinionView);
+    }
+
+    opinionArray2html(sourceData){
+
+        let htmlWithOpinions="";
+
+        for(const opn of sourceData){
+            htmlWithOpinions += this.opinion2html(opn);
+        }
+
+        return htmlWithOpinions;
+    }
+
+    deleteOldComments(){
+        //this.opinions = JSON.parse(localStorage.comments);
+        for (let i = 0; i < this.opinions.length; i++){
+            if((Date.now() - new Date(this.opinions[i].created))/(1000*60*60*24) > 1) {
+                this.opinions.splice(i, 1);
+            }
+        }
+
+        localStorage.comments = JSON.stringify(this.opinions);
+        this.oldComments.innerHTML = this.opinionArray2html(this.opinions);
     }
 
 }
