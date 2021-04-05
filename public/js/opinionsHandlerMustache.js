@@ -29,6 +29,7 @@ export default class OpinionsHandlerMustache{
         }
         this.oldComments.innerHTML = this.opinionArray2html(this.opinions);
         this.form.addEventListener("submit", event => this.processOpnFrmData(event));
+        this.form.addEventListener("reset", event => this.resetOpnFrmData());
         if (this.opinions.length == 0) document.getElementById("opinions").style.visibility = "hidden";
     }
 
@@ -47,6 +48,8 @@ export default class OpinionsHandlerMustache{
 
         //3. Verify the data;
         let mistakes = 0
+
+        //NAME
         if(userName == "") {
             document.getElementById("user_name").style.border = "medium solid red";
             mistakes++;
@@ -55,6 +58,7 @@ export default class OpinionsHandlerMustache{
             document.getElementById("user_name").style.border = "solid 4px rgb(34, 73, 40)";
         }
 
+        //EMAIL
         if(userEmail == "" || !userEmail.includes("@")) {
             document.getElementById("user_email").style.border = "medium solid red";
             mistakes++;
@@ -63,6 +67,7 @@ export default class OpinionsHandlerMustache{
             document.getElementById("user_email").style.border = "solid 4px rgb(34, 73, 40)"
         }
 
+        //COMMENT
         if(userComment.trim() == "") {
             document.getElementById("textarea").style.border = "medium solid red";
             mistakes++;
@@ -71,7 +76,8 @@ export default class OpinionsHandlerMustache{
             document.getElementById("textarea").style.border = "solid 4px rgb(34, 73, 40)";
         }
 
-        if(userPicture.trim() != "" && !userPicture.includes("https://") && !userPicture.includes("http://")) {
+        //PICTURE
+        if(userPicture.trim() != "" || (!userPicture.includes("https://") && !userPicture.includes("http://"))) {
             document.getElementById("user_picture").style.border = "medium solid red";
             mistakes++;
         }
@@ -173,6 +179,15 @@ export default class OpinionsHandlerMustache{
         if (this.opinions.length == 0) document.getElementById("opinions").style.visibility = "hidden";
     }
 
+    resetOpnFrmData(){
+        document.getElementById("user_name").style.border = "solid 4px rgb(34, 73, 40)";
+        document.getElementById("user_email").style.border = "solid 4px rgb(34, 73, 40)";
+        document.getElementById("textarea").style.border = "solid 4px rgb(34, 73, 40)";
+        document.getElementById("user_picture").style.border = "solid 2px rgb(34, 73, 40)";
+
+        document.getElementById("rate_my_site").style.color = "rgb(34, 73, 40)";
+        document.getElementById("rate_my_site").textContent = "Rate my site";
+    }
 }
 
 
