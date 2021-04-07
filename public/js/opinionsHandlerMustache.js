@@ -64,7 +64,7 @@ export default class OpinionsHandlerMustache{
         }
 
         //PICTURE
-        if(userPicture == " " || ((userPicture.trim() != "" && !userPicture.includes("https://") && !userPicture.includes("http://")))) {
+        if((userPicture != "" && userPicture.trim() == "") || ((userPicture.trim() != "" && !userPicture.includes("https://") && !userPicture.includes("http://")))) {
             document.getElementById("user_picture").style.border = "medium solid red";
             mistakes++;
         }
