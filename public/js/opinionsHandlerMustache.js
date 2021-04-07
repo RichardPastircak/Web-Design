@@ -155,7 +155,7 @@ export default class OpinionsHandlerMustache{
         //this.opinions = JSON.parse(localStorage.comments);
         for (let i = 0; i < this.opinions.length; i++){
             if((Date.now() - new Date(this.opinions[i].created))/(1000*60*60*24) > 1) {
-                console.log((Date.now() - new Date(this.opinions[i].created))/(1000*60*60*24));
+                //console.log((Date.now() - new Date(this.opinions[i].created))/(1000*60*60*24));
                 this.opinions.splice(i, 1);
                 i--;
             }
