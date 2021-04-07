@@ -1,20 +1,8 @@
 import Mustache from "./mustache.js";
 
-/**
- * Class for  handling a list (an array) of visitor opinions in local storage
- * The list is filled from a form and rendered to html
- * A mustache template is used to render the opinions list
- * @extends OpinionsHandler
- * @author Stefan Korecko (2021)
- */
+
 export default class OpinionsHandlerMustache{
 
-    /**
-     * constructor
-     * @param formId - id of a form element where a new visitor opinion is entered
-     * @param commentsList - id of a html element to which the list of visitor opinions is rendered
-     * @param template - id of a html element with the mustache template
-     */
     constructor(formId, commentsList,template) {
 
         this.opinions = [];
@@ -29,7 +17,6 @@ export default class OpinionsHandlerMustache{
         }
         this.oldComments.innerHTML = this.opinionArray2html(this.opinions);
         this.form.addEventListener("submit", event => this.processOpnFrmData(event));
-        this.form.addEventListener("reset", event => this.resetOpnFrmData());
         if (this.opinions.length == 0) document.getElementById("opinions").style.visibility = "hidden";
     }
 
@@ -77,7 +64,7 @@ export default class OpinionsHandlerMustache{
         }
 
         //PICTURE
-        if(userPicture.trim() != "" || (!userPicture.includes("https://") && !userPicture.includes("http://"))) {
+        if(userPicture == " " || ((userPicture.trim() != "" && !userPicture.includes("https://") && !userPicture.includes("http://")))) {
             document.getElementById("user_picture").style.border = "medium solid red";
             mistakes++;
         }
@@ -168,7 +155,9 @@ export default class OpinionsHandlerMustache{
         //this.opinions = JSON.parse(localStorage.comments);
         for (let i = 0; i < this.opinions.length; i++){
             if((Date.now() - new Date(this.opinions[i].created))/(1000*60*60*24) > 1) {
+                console.log((Date.now() - new Date(this.opinions[i].created))/(1000*60*60*24));
                 this.opinions.splice(i, 1);
+                i--;
             }
         }
 
@@ -177,16 +166,6 @@ export default class OpinionsHandlerMustache{
 
         //hide Opinions heading
         if (this.opinions.length == 0) document.getElementById("opinions").style.visibility = "hidden";
-    }
-
-    resetOpnFrmData(){
-        document.getElementById("user_name").style.border = "solid 4px rgb(34, 73, 40)";
-        document.getElementById("user_email").style.border = "solid 4px rgb(34, 73, 40)";
-        document.getElementById("textarea").style.border = "solid 4px rgb(34, 73, 40)";
-        document.getElementById("user_picture").style.border = "solid 2px rgb(34, 73, 40)";
-
-        document.getElementById("rate_my_site").style.color = "rgb(34, 73, 40)";
-        document.getElementById("rate_my_site").textContent = "Rate my site";
     }
 }
 
